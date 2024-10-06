@@ -78,12 +78,6 @@ const ImageInput = ({
               value: require,
               message: "Image is required",
             },
-            validate: {
-              lessThan512KB: (files) =>
-                !files[0] ||
-                files[0]?.size / 1024 < 512 ||
-                "File size should be less than 512KB",
-            },
           })}
           type="file"
           id="image"
