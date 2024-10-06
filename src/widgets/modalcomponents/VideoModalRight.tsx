@@ -1,5 +1,5 @@
 const VideoModalRight = () => {
-  return <div>VideoModalRight</div>;
+  return <div className="flex-1">VideoModalRight</div>;
 };
 
 export default VideoModalRight;
