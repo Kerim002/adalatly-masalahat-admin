@@ -10,4 +10,16 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  server: {
+    host: true,
+    port: 5175,
+    cors: true,
+    proxy: {
+      "/api": {
+        target: "http://192.168.0.107:5000",
+        changeOrigin: true,
+        secure: false,
+      },
+    },
+  },
 });
