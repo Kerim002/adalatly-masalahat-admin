@@ -1,4 +1,9 @@
-import ImageInput from "../inputs/ImageInput";
+import {
+  FieldErrors,
+  UseFormRegister,
+  UseFormSetValue,
+  UseFormWatch,
+} from "react-hook-form";
 
 type Props = {
   register: UseFormRegister<any>;
@@ -11,11 +16,7 @@ type Props = {
 };
 
 const VideoModalLeft = ({}) => {
-  return (
-    <div className="flex-1">
-      <ImageInput errors={} />
-    </div>
-  );
+  return <div className="flex-1">{/* <ImageInput errors={} /> */}</div>;
 };
 
 export default VideoModalLeft;

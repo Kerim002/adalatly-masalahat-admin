@@ -1,5 +1,5 @@
+import { MediaContent } from "@/entities/media";
 import TableHead from "../shared/ui/TableHead";
-import { VideoRow } from "../widgets/rows";
 
 const mediaHead = [
   {
@@ -33,38 +33,7 @@ const VideosPage = () => {
     <div className="">
       <TableHead tableh={mediaHead} />
       <div className="flex flex-col gap-3 pt-3 overflow-auto h-[80vh]">
-        <VideoRow />
-        <VideoRow />
-        <VideoRow />
-        <VideoRow />
-        <VideoRow />
-        <VideoRow />
-        <VideoRow />
-        <VideoRow />
-        <VideoRow />
-        <VideoRow />
-        <VideoRow />
-        <VideoRow />
-        <VideoRow />
-        <VideoRow />
-        <VideoRow />
-        <VideoRow />
-        <VideoRow />
-        <VideoRow />
-        <VideoRow />
-        <VideoRow />
-        <VideoRow />
-        <VideoRow />
-        <VideoRow />
-        <VideoRow />
-        <VideoRow />
-        <VideoRow />
-        <VideoRow />
-        <VideoRow />
-        <VideoRow />
-        <VideoRow />
-        <VideoRow />
-        <VideoRow />
+        <MediaContent />
       </div>
     </div>
   );
