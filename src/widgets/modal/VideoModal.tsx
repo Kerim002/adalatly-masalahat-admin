@@ -14,7 +14,6 @@ const VideoModal = () => {
   const [require, setRequire] = useState(true);
   const { mutate } = useMediaAddMutation();
   const onSubmit: SubmitHandler<any> = (data) => {
-    console.log(data);
     const formdata = new FormData();
     formdata.append("en_title", data.entitle);
     formdata.append("tm_title", data.tmtitle);
