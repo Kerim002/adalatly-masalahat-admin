@@ -9,6 +9,7 @@ import {
   NewsPage,
   VideosPage,
   BannerPage,
+  SingleNews,
 } from "../../pages";
 
 export const router = createBrowserRouter([
@@ -39,6 +40,10 @@ export const router = createBrowserRouter([
       {
         path: "news",
         Component: NewsPage,
+      },
+      {
+        path: "news/:id",
+        Component: SingleNews,
       },
       {
         path: "videos",

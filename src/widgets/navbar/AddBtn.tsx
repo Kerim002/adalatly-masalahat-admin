@@ -1,12 +1,33 @@
 import { CgAdd } from "react-icons/cg";
 import { useModal } from "../../shared/hooks/useModal";
-import { VideoModal } from "../modal";
+import NewsModal from "../modal/NewsModal";
+import { BannerModal, VideoModal } from "../modal";
+import EmployeeModal from "../modal/EmployeeModal";
+import { useLocation } from "react-router-dom";
 const AddBtn = () => {
   const { changeModal } = useModal();
+  const { pathname } = useLocation();
+  const handleModal = () => {
+    switch (pathname) {
+      case "/employees":
+        changeModal(<EmployeeModal />);
+        break;
+      case "/banner":
+        changeModal(<BannerModal />);
+        break;
+      case "/news":
+        changeModal(<NewsModal />);
+        break;
+      case "/videos":
+        changeModal(<VideoModal />);
+        break;
+      default:
+        break;
+    }
+  };
   return (
     <div
-      // onClick={() => changeModal(<BannerModal />)}
-      onClick={() => changeModal(<VideoModal />)}
+      onClick={handleModal}
       className="p-2 bg-slate-500 rounded-full text-white"
     >
       <CgAdd className="text-3xl" />

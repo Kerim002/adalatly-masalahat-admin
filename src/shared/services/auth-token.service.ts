@@ -1,4 +1,4 @@
-import Cookies from "js-cookie";
+// import Cookies from "js-cookie";
 
 export enum EnumTokens {
   ACCESS_TOKEN = "accessToken",
@@ -6,18 +6,19 @@ export enum EnumTokens {
 }
 
 export const getAccessToken = () => {
-  const accessToken = Cookies.get(EnumTokens.ACCESS_TOKEN);
-  return accessToken || null;
+  // const accessToken = Cookies.get(EnumTokens.ACCESS_TOKEN);
+  // return accessToken || null;
+  return "";
 };
 
 export const saveTokenStorage = (accessToken: string) => {
-  Cookies.set(EnumTokens.ACCESS_TOKEN, accessToken, {
-    domain: "localhost",
-    sameSite: "Lax",
-    expires: 1,
-  });
+  // Cookies.set(EnumTokens.ACCESS_TOKEN, accessToken, {
+  //   domain: "localhost",
+  //   sameSite: "Lax",
+  //   expires: 1,
+  // });
 };
 
 export const removeTokenFromStorage = () => {
-  Cookies.remove(EnumTokens.ACCESS_TOKEN);
+  // Cookies.remove(EnumTokens.ACCESS_TOKEN);
 };

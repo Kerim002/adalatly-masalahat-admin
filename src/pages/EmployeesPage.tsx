@@ -1,5 +1,7 @@
+import EmployerContent from "@/entities/employer/ui/EmployerContent";
+
 const EmployeesPage = () => {
-  return <div>EmployeesPage</div>;
+  return <EmployerContent />;
 };
 
 export default EmployeesPage;
