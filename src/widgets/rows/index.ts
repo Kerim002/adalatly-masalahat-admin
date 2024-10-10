@@ -1,3 +1,3 @@
 import VideoRow from "./VideoRow";
-
-export { VideoRow };
+import NewsRow from "./NewsRow";
+export { VideoRow, NewsRow };
