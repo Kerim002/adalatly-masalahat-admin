@@ -5,6 +5,7 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import { useMediaIdQuery } from "@/entities/media/api/useMediaIdQuery";
 import { UseQueryResult } from "@tanstack/react-query";
 import { useModal } from "@/shared/hooks";
+import { useMediaUpdateMutation } from "@/entities/media/api/useMediaUpdateMutation";
 
 type Props = {
   id?: number;
@@ -32,19 +33,28 @@ const VideoModal = ({ id }: Props) => {
     }
   }, [result]);
   const [require, setRequire] = useState(true);
-  const { mutate } = useMediaAddMutation();
+  const { mutate: createMedia } = useMediaAddMutation();
+  const { mutate: updateMedia } = useMediaUpdateMutation();
   const onSubmit: SubmitHandler<any> = (data) => {
     const formdata = new FormData();
     formdata.append("en_title", data.entitle);
     formdata.append("tm_title", data.tmtitle);
     formdata.append("ru_title", data.rutitle);
-    formdata.append("video", data.video[0]);
-    formdata.append("cover", data.image[0]);
-    mutate(formdata, {
-      onSuccess: () => {
-        close();
-      },
-    });
+    data.video[0] && formdata.append("videos", data.video[0]);
+    data.image[0] && formdata.append("covers", data.image[0]);
+    if (result) {
+      updateMedia(formdata, {
+        onSuccess: () => {
+          close();
+        },
+      });
+    } else {
+      createMedia(formdata, {
+        onSuccess: () => {
+          close();
+        },
+      });
+    }
   };
   return (
     <form

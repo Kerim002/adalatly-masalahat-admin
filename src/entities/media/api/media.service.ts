@@ -23,6 +23,13 @@ class MediaService {
       },
     });
   }
+  async updateMedia(formdata: FormData) {
+    await axiosWithAuth.post(`${this.url}`, formdata, {
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+    });
+  }
 }
 
 export const mediaService = new MediaService();
