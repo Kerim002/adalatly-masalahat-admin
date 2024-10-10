@@ -9,11 +9,17 @@ class EmployerService {
   }
 
   async addEmployer(data: FormData) {
-    await axiosWithAuth.post(this.PATH, data, {
+    const res = await axiosWithAuth.post(this.PATH, data, {
       headers: {
         "Content-Type": "multipart/form-data",
       },
     });
+    return res.data;
+  }
+
+  async deleteEmployer(id: string) {
+    const res = await axiosWithAuth.delete(this.PATH, { params: { id } });
+    return res.data;
   }
 }
 
