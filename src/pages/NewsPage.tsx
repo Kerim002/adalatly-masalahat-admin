@@ -1,45 +1,22 @@
+import { useNews } from "@/entities/news/api/useNews";
+import NewsContent from "@/entities/news/ui/NewsContent";
+import CustomPagination from "@/features/Pagination";
+import { newsHead } from "@/shared";
+import { usePage } from "@/shared/hooks";
 import TableHead from "@/shared/ui/TableHead";
-import { VideoRow } from "@/widgets/rows";
-
-const newsHead = [
-  {
-    size: 0.5,
-    name: "No",
-  },
-  {
-    size: 3,
-    name: "News",
-  },
-  {
-    size: 4,
-    name: "Tm title",
-  },
-  {
-    size: 4,
-    name: "Ru title",
-  },
-  {
-    size: 4,
-    name: "En title",
-  },
-  {
-    size: 2,
-    name: "Action",
-  },
-];
 
 const NewsPage = () => {
+  const { getPage } = usePage();
+  const { data } = useNews({ page: getPage() ?? 1, pageSize: 10 });
   return (
-    <div className="">
+    <div className="w-full border flex flex-col items-center border-red-500 h-[calc(100vh-4rem)] p-4">
       <TableHead tableh={newsHead} />
-      <div className="flex flex-col gap-3 pt-3 overflow-auto h-[80vh]">
-        {/* <VideoRow  />
-        <VideoRow />
-        <VideoRow />
-        <VideoRow />
-        <VideoRow />
-        <VideoRow /> */}
-      </div>
+      <NewsContent />
+      <CustomPagination
+        page={data?.page}
+        pageSize={data?.pageSize}
+        total={data?.total}
+      />
     </div>
   );
 };

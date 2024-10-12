@@ -4,6 +4,7 @@ import { useState } from "react";
 import ReInput from "../inputs/ReInput";
 import ReTextArea from "../inputs/ReTextArea";
 import { Button } from "antd";
+import { useAddNews } from "@/entities/news/api/useAddNews";
 
 const NewsModal = () => {
   const {
@@ -14,8 +15,17 @@ const NewsModal = () => {
     handleSubmit,
   } = useForm();
   const [state, setRequire] = useState(true);
-
+  const { mutate } = useAddNews();
   const onSubmit: SubmitHandler<any> = (data) => {
+    const formData = new FormData();
+    formData.append("tm_title", data.tmtitle);
+    formData.append("en_title", data.entitle);
+    formData.append("ru_title", data.rutitle);
+    formData.append("tm_description", data.tmdesc);
+    formData.append("en_description", data.endesc);
+    formData.append("ru_description", data.rudesc);
+    formData.append("image", data.image[0]);
+    mutate(formData);
     console.log(data);
   };
   return (
@@ -50,31 +60,31 @@ const NewsModal = () => {
       <ReInput
         errmessage="Title is required"
         errors={errors}
-        keyname="tmtitle"
-        name="Turkmen title"
+        keyname="entitle"
+        name="English title"
         register={register}
         type="text"
       />
       <ReTextArea
         errmessage="Description is required"
         errors={errors}
-        keyname="tmdesc"
-        name="Turkmen description"
+        keyname="endesc"
+        name="English description"
         register={register}
       />
       <ReInput
         errmessage="Title is required"
         errors={errors}
-        keyname="tmtitle"
-        name="Turkmen title"
+        keyname="rutitle"
+        name="Russian title"
         register={register}
         type="text"
       />
       <ReTextArea
         errmessage="Description is required"
         errors={errors}
-        keyname="tmdesc"
-        name="Turkmen description"
+        keyname="rudesc"
+        name="Russian description"
         register={register}
       />
       <Button htmlType="submit" type="primary">

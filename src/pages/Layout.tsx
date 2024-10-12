@@ -9,7 +9,7 @@ const LayoutPage = () => {
       <Sidebar />
       <div className="w-full h-full ">
         <Navbar />
-        <div className="w-full h-[calc(100vh-4.3rem)] overflow-auto">
+        <div className="w-full h-[calc(100vh-4rem)] overflow-auto">
           <Suspense fallback={<div>Loading...</div>}>
             <Outlet />
           </Suspense>

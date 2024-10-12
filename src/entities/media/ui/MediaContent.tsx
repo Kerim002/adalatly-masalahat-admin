@@ -37,6 +37,7 @@ const MediaContent = () => {
   if (!data) {
     return <div className="w-full text-center">No Data</div>;
   }
+  console.log(data.media);
   return (
     <PaginationWrapper
       page={data.page}

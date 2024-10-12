@@ -16,10 +16,10 @@ const PaginationWrapper = ({ children, page, pageSize, total }: Props) => {
   };
   return (
     <>
-      <div className="h-[calc(100vh-8rem)] gap-8 p-3 flex flex-col items-center">
+      <div className="bg-white h-[calc(100vh-8rem)] gap-8 p-3 flex flex-col items-center">
         {children}
       </div>
-      <div className="flex justify-center">
+      <div className="flex justify-center  w-full">
         <Pagination
           pageSize={pageSize}
           onChange={handlePageChange}

@@ -16,8 +16,8 @@ export default defineConfig({
     cors: true,
     proxy: {
       "/api": {
-        target: "http://127.0.0.1:5000",
-        // target: "http://192.168.100.242:5000",
+        // target: "http://192.168.0.103:5000",
+        target: "http://192.168.100.242:5000",
         changeOrigin: true,
         secure: false,
       },
