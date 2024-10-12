@@ -43,12 +43,14 @@ const VideoModal = ({ id }: Props) => {
     data.video[0] && formdata.append("videos", data.video[0]);
     data.image[0] && formdata.append("covers", data.image[0]);
     if (result) {
+      console.log("update");
       updateMedia(formdata, {
         onSuccess: () => {
           close();
         },
       });
     } else {
+      console.log("create");
       createMedia(formdata, {
         onSuccess: () => {
           close();
