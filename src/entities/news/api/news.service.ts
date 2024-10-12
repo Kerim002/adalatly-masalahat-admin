@@ -11,7 +11,7 @@ class NewsService {
   }
 
   async addNews(data: FormData) {
-    await axiosWithAuth.post(`/admin/${this.PATH}`, data, {
+    await axiosWithAuth.post(`/${this.PATH}`, data, {
       headers: {
         "Content-Type": "multipart/form-data",
       },

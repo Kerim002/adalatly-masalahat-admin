@@ -16,7 +16,7 @@ const VideoRow = ({ item, index }: Props) => {
       <div className="flex-[0.5] text-center">{index}</div>
       <div className="flex-[3] flex justify-center items-center">
         <img
-          src="/test/test1.jpg"
+          src={item.cover}
           className="h-24 w-36 rounded-lg object-cover"
           alt=""
         />

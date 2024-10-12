@@ -41,7 +41,10 @@ const BannerModal = ({ id }: Props) => {
     body.append("is_active", data.isActive ? "true" : "false");
     if (id) {
       updateBanner({ id: id, body }, { onSuccess: () => close() });
-    } else createBanner(body, { onSuccess: () => close() });
+    } else {
+      // createBanner(body, { onSuccess: () => close() });
+      createBanner(body);
+    }
   };
   useEffect(() => {
     if (result) {

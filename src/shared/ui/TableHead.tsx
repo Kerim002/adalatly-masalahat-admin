@@ -12,7 +12,7 @@ type Props = {
 
 const TableHead = ({ tableh }: Props) => {
   return (
-    <div className="border bg-slate-600 mr-4 border-gray-200 flex rounded-t-xl py-2 z-10">
+    <div className="border w-full bg-slate-600 mr-4 border-gray-200 flex rounded-t-xl py-2 z-10">
       {tableh?.map((item, index) => (
         <span
           className={`border-r border-gray-200 flex text-white justify-center font-semibold ${

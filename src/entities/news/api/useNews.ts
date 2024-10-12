@@ -3,6 +3,6 @@ import { newsService } from "./news.service";
 
 export const useNews = (params: PaginationReq) =>
   useQuery<NewsResponse, Error>({
-    queryKey: ["news"],
+    queryKey: ["news", params.page],
     queryFn: () => newsService.getNews(params),
   });
