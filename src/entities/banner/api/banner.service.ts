@@ -2,9 +2,11 @@ import { toast } from "sonner";
 import { axiosWithAuth } from "../../../shared/api/interceptor";
 
 class BannerService {
-  private PATH = "/banner";
-  async getBanners() {
-    const res = await axiosWithAuth.get<BannerSchema[]>(`${this.PATH}`);
+  private PATH = "/banners";
+  async getBanners(params: MediaListRequest) {
+    const res = await axiosWithAuth.get<BannerResponse>(`${this.PATH}`, {
+      params,
+    });
     return res.data;
   }
   async getBannerById(id: number) {

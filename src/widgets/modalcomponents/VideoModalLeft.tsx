@@ -15,7 +15,7 @@ type Props = {
   require: boolean;
   setValue: UseFormSetValue<any>;
   setRequire: any;
-  oldVideo: string;
+  oldVideo?: string;
 };
 
 const VideoModalLeft = ({

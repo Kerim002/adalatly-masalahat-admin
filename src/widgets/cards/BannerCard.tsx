@@ -12,7 +12,7 @@ const BannerCard = ({ banner }: Props) => {
   const { changeModal } = useModal();
   return (
     <div
-      className={`rounded-2xl overflow-hidden  shadow-lg shadow-gray-300 flex flex-col ${
+      className={`rounded-2xl overflow-hidden h-fit shadow-lg shadow-gray-300 flex flex-col ${
         !banner.is_active && "opacity-50"
       }`}
     >

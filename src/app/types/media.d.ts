@@ -14,8 +14,8 @@ type MediaListRequest = {
   pageSize?: number;
 };
 interface MediaResponse {
-  media: MediaItemSchema[];
+  data: MediaItemSchema[];
   page: number;
-  pageSize: number;
+  limit: number;
   total: number;
 }

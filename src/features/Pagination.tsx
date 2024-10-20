@@ -7,7 +7,7 @@ type Props = {
   total?: number;
 };
 
-const CustomPagination = ({ page = 1, pageSize = 10, total = 0 }: Props) => {
+const CustomPagination = ({ page = 1, pageSize = 0, total = 0 }: Props) => {
   const { setPage } = usePage();
   const handlePageChange = (pageNumber: number) => {
     setPage(pageNumber);

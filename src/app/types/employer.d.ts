@@ -7,8 +7,8 @@ interface EmployerItemSchema {
 }
 
 interface EmployerResponse {
-  employer: EmployerItemSchema[];
+  data: EmployerItemSchema[];
   page: number;
-  pageSize: number;
+  limit: number;
   total: number;
 }

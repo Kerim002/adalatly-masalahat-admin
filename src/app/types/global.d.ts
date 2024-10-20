@@ -1,4 +1,4 @@
 interface PaginationReq {
   page?: number;
-  pageSize?: number;
+  limit?: number;
 }

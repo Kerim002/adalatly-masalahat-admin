@@ -5,6 +5,7 @@ import ReInput from "../inputs/ReInput";
 import ReTextArea from "../inputs/ReTextArea";
 import { Button } from "antd";
 import { useAddNews } from "@/entities/news/api/useAddNews";
+import { useModal } from "@/shared/hooks";
 
 const NewsModal = () => {
   const {
@@ -16,6 +17,8 @@ const NewsModal = () => {
   } = useForm();
   const [state, setRequire] = useState(true);
   const { mutate } = useAddNews();
+  const { close } = useModal();
+
   const onSubmit: SubmitHandler<any> = (data) => {
     const formData = new FormData();
     formData.append("tm_title", data.tmtitle);
@@ -24,9 +27,8 @@ const NewsModal = () => {
     formData.append("tm_description", data.tmdesc);
     formData.append("en_description", data.endesc);
     formData.append("ru_description", data.rudesc);
-    formData.append("image", data.image[0]);
+    formData.append("news", data.image[0]);
     mutate(formData);
-    console.log(data);
   };
   return (
     <form

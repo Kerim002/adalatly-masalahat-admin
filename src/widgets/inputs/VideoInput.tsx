@@ -22,10 +22,18 @@ const VideoInput = ({ errors, register, watch, oldVideo }: Props) => {
   return (
     <div className="w-[350px] h-[225px] border border-gray-400 flex flex-col items-center justify-center  rounded-2xl relative">
       {videoURL ? (
+        <div className="w-[350px] h-[225px]">
+          <video
+            className="w-full h-full object-cover rounded-2xl"
+            controls
+            src={videoURL}
+          />
+        </div>
+      ) : oldVideo ? (
         <video
           className="w-[350px] h-[225px] object-cover rounded-2xl"
           controls
-          src={videoURL}
+          src={oldVideo}
         />
       ) : (
         <BiVideo className="text-5xl" />

@@ -5,9 +5,10 @@ import { Button } from "antd";
 type Props = {
   register: UseFormRegister<any>;
   errors: FieldErrors<any>;
+  loading: boolean;
 };
 
-const VideoModalRight = ({ errors, register }: Props) => {
+const VideoModalRight = ({ errors, register, loading }: Props) => {
   return (
     <div className="flex-1 flex-col flex gap-5 justify-center">
       <ReTextArea
@@ -31,7 +32,7 @@ const VideoModalRight = ({ errors, register }: Props) => {
         keyname="entitle"
         name="English"
       />
-      <Button htmlType="submit" type="primary">
+      <Button loading={loading} htmlType="submit" type="primary">
         Add Video
       </Button>
     </div>

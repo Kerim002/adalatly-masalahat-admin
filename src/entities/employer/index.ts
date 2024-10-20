@@ -1,3 +1,4 @@
 import { useEmployerAdd } from "./api/useAddEmployer";
-
-export { useEmployerAdd };
+import { useEmployerIdQuery } from "./api/useEmployerId";
+import { useEmployerUpdate } from "./api/useEmployerUpdate";
+export { useEmployerAdd, useEmployerIdQuery, useEmployerUpdate };

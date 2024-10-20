@@ -12,8 +12,8 @@ interface NewsItemSchema {
 }
 
 interface NewsResponse {
-  news: NewsItemSchema[];
+  data: NewsItemSchema[];
   page: number;
-  pageSize: number;
+  limit: number;
   total: number;
 }
