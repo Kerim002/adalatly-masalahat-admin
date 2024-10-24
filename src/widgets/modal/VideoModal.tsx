@@ -73,6 +73,7 @@ const VideoModal = ({ id }: Props) => {
         setValue={setValue}
         watch={watch}
       />
+
       <VideoModalRight errors={errors} register={register} />
     </form>
   );
