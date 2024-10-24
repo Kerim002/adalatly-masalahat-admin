@@ -33,15 +33,17 @@ const VideoModal = ({ id }: Props) => {
     }
   }, [result]);
   const [require, setRequire] = useState(true);
-  const { mutate: createMedia } = useMediaAddMutation();
-  const { mutate: updateMedia } = useMediaUpdateMutation();
+  const { mutate: createMedia, isPending: createLoading } =
+    useMediaAddMutation();
+  const { mutate: updateMedia, isPending: updateLoading } =
+    useMediaUpdateMutation();
   const onSubmit: SubmitHandler<any> = (data) => {
     const formdata = new FormData();
     formdata.append("en_title", data.entitle);
     formdata.append("tm_title", data.tmtitle);
     formdata.append("ru_title", data.rutitle);
-    data.video[0] && formdata.append("videos", data.video[0]);
-    data.image[0] && formdata.append("covers", data.image[0]);
+    data.video[0] && formdata.append("video", data.video[0]);
+    data.image[0] && formdata.append("cover", data.image[0]);
     if (result) {
       console.log("update");
       updateMedia(formdata, {
@@ -73,8 +75,11 @@ const VideoModal = ({ id }: Props) => {
         setValue={setValue}
         watch={watch}
       />
-
-      <VideoModalRight errors={errors} register={register} />
+      <VideoModalRight
+        loading={createLoading || updateLoading}
+        errors={errors}
+        register={register}
+      />
     </form>
   );
 };

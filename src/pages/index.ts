@@ -10,6 +10,7 @@ const AboutPage = lazy(() => import("./AboutPage"));
 const HomePage = lazy(() => import("./HomePage"));
 const BannerPage = lazy(() => import("./BannerPage"));
 const SingleNews = lazy(() => import("./SingeNewsPage"));
+const SingleLaw = lazy(() => import("./SingleLaw"));
 export {
   EmployeesPage,
   LoginPage,
@@ -20,5 +21,6 @@ export {
   VideosPage,
   HomePage,
   BannerPage,
+  SingleLaw,
   SingleNews,
 };

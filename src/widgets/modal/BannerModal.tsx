@@ -34,7 +34,7 @@ const BannerModal = ({ id }: Props) => {
   const onSubmit: SubmitHandler<any> = (data) => {
     const body = new FormData();
     if (data.image && data.image[0] instanceof File) {
-      body.append("bannerimg", data.image[0]);
+      body.append("banner", data.image[0]);
     }
 
     body.append("link", data.link);
@@ -42,8 +42,7 @@ const BannerModal = ({ id }: Props) => {
     if (id) {
       updateBanner({ id: id, body }, { onSuccess: () => close() });
     } else {
-      // createBanner(body, { onSuccess: () => close() });
-      createBanner(body);
+      createBanner(body, { onSuccess: () => close() });
     }
   };
   useEffect(() => {

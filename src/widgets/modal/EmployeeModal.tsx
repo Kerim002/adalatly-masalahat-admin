@@ -1,11 +1,23 @@
 import { SubmitHandler, useForm } from "react-hook-form";
 import ImageInput from "../inputs/ImageInput";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ReInput from "../inputs/ReInput";
 import { Button } from "antd";
-import { useEmployerAdd } from "@/entities/employer";
-
-const EmployeeModal = () => {
+import {
+  useEmployerAdd,
+  useEmployerIdQuery,
+  useEmployerUpdate,
+} from "@/entities/employer";
+import { UseQueryResult } from "@tanstack/react-query";
+import { useModal } from "@/shared/hooks";
+type Props = {
+  id?: number;
+};
+const EmployeeModal = ({ id }: Props) => {
+  let result = null as UseQueryResult<EmployerItemSchema, Error> | null;
+  const { mutate: createEmployer } = useEmployerAdd();
+  const { mutate: updateEmployer } = useEmployerUpdate();
+  if (id) result = useEmployerIdQuery(id);
   const {
     watch,
     register,
@@ -13,17 +25,33 @@ const EmployeeModal = () => {
     formState: { errors },
     handleSubmit,
   } = useForm();
+  const { close } = useModal();
+
   const [require, setRequire] = useState(true);
-  const { mutate } = useEmployerAdd();
   const onSubmit: SubmitHandler<any> = (data) => {
-    const formdata = new FormData();
-    formdata.append("image", data.image[0]);
-    formdata.append("surname", data.surname);
-    formdata.append("name", data.name);
-    formdata.append("major", data.major);
-    console.log(data.image[0]);
-    mutate(formdata);
+    const body = new FormData();
+    if (data.image && data.image[0] instanceof File) {
+      body.append("employer", data.image[0]);
+    }
+    body.append("surname", data.surname);
+    body.append("name", data.name);
+    body.append("major", data.major);
+    if (id) {
+      updateEmployer({ id: id, data: body }, { onSuccess: () => close() });
+    } else {
+      createEmployer(body, { onSuccess: () => close() });
+    }
   };
+
+  useEffect(() => {
+    if (result) {
+      setValue("id", result?.data?.id);
+      setValue("name", result?.data?.name);
+      setValue("surname", result?.data?.surname);
+      setValue("major", result?.data?.major);
+      setRequire(false);
+    }
+  }, [result]);
 
   return (
     <form
@@ -37,6 +65,7 @@ const EmployeeModal = () => {
         setRequire={setRequire}
         setValue={setValue}
         watch={watch}
+        oldImage={result?.data?.image ?? ""}
       />
       <ReInput
         errmessage="Name is required"
@@ -63,7 +92,7 @@ const EmployeeModal = () => {
         type="text"
       />
       <Button htmlType="submit" type="primary">
-        Add employee
+        {id ? "Update employee" : "Add employee"}
       </Button>
     </form>
   );

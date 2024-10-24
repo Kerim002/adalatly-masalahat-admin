@@ -8,7 +8,7 @@ export const useEmployerDeleteMutation = () =>
     mutationFn: (id: string) => employerService.deleteEmployer(id),
     onSuccess: () => {
       toast.success("Employer deleted successfully!");
-      queryClient.invalidateQueries({ queryKey: ["employers"] });
+      queryClient.invalidateQueries({ queryKey: ["employer"] });
     },
     onError: (error) => {
       toast.error("Failed to delete employer!");

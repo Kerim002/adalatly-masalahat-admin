@@ -1,9 +1,18 @@
-import { BannerContent } from "../entities/banner";
+import CustomPagination from "@/features/Pagination";
+import { BannerContent, useBannersQuery } from "../entities/banner";
+import { usePage } from "@/shared/hooks";
 
 const Banner = () => {
+  const { getPage } = usePage();
+  const { data } = useBannersQuery({ page: getPage() });
   return (
-    <div className="grid 2xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-8 px-5 py-4">
+    <div className="w-full border flex flex-col items-center  h-[calc(100vh-4rem)] p-4">
       <BannerContent />
+      <CustomPagination
+        page={data?.page}
+        pageSize={data?.limit}
+        total={data?.total}
+      />
     </div>
   );
 };

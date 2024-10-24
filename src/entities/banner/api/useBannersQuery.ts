@@ -1,8 +1,8 @@
 import { useQuery } from "@tanstack/react-query";
 import { bannerService } from "./banner.service";
 
-export const useBannersQuery = () =>
-  useQuery<BannerSchema[], Error>({
+export const useBannersQuery = (params: MediaListRequest) =>
+  useQuery<BannerResponse, Error>({
     queryKey: ["banners"],
-    queryFn: () => bannerService.getBanners(),
+    queryFn: () => bannerService.getBanners(params),
   });

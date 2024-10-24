@@ -1,13 +1,16 @@
 import { useEmployerDeleteMutation } from "@/entities/employer/api/useEmployerDeleteMutation";
+import { useModal } from "@/shared/hooks";
 import { Button, Popconfirm } from "antd";
+import EmployeeModal from "../modal/EmployeeModal";
 
 type Props = {
   item: EmployerItemSchema;
 };
 const EmployeeCard = ({ item }: Props) => {
   const { mutate } = useEmployerDeleteMutation();
+  const { changeModal } = useModal();
   return (
-    <div className="flex flex-col items-center gap-1 justify-center ">
+    <div className="flex flex-col items-center gap-1">
       <div className="w-32 h-32 ">
         <img
           src={item.image}
@@ -29,7 +32,11 @@ const EmployeeCard = ({ item }: Props) => {
             Delete
           </Button>
         </Popconfirm>
-        <Button className="w-24" type="primary">
+        <Button
+          onClick={() => changeModal(<EmployeeModal id={item.id} />)}
+          className="w-24"
+          type="primary"
+        >
           Edit
         </Button>
       </div>

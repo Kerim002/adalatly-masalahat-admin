@@ -1,7 +1,7 @@
 import JoditEditor from "jodit-react";
 import { useRef, useState } from "react";
 
-const AboutPage = () => {
+const SingleLaw = () => {
   const editor = useRef(null);
   const [content, setContent] = useState<string>("");
   const config = {
@@ -22,4 +22,4 @@ const AboutPage = () => {
   );
 };
 
-export default AboutPage;
+export default SingleLaw;
