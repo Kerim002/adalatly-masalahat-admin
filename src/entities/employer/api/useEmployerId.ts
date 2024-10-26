@@ -3,6 +3,6 @@ import { employerService } from "./employer.service";
 
 export const useEmployerIdQuery = (id: number) =>
   useQuery<EmployerItemSchema, Error>({
-    queryKey: ["singleEmployer", id],
+    queryKey: ["employer", id],
     queryFn: () => employerService.getEmployerById(id),
   });

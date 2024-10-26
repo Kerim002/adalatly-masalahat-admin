@@ -9,7 +9,7 @@ export const useBannerUpdateMutation = () =>
       bannerService.updateBanner(id, body),
     onSuccess: () => {
       toast.success(`banner  success created`);
-      queryClient.invalidateQueries({ queryKey: ["banners"] });
+      queryClient.invalidateQueries({ queryKey: ["banner"] });
     },
     onError: () => toast.error("unsuccess"),
   });

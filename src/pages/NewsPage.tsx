@@ -14,7 +14,7 @@ const NewsPage = () => {
       <NewsContent />
       <CustomPagination
         page={data?.page}
-        pageSize={data?.total}
+        pageSize={data?.limit}
         total={data?.total}
       />
     </div>

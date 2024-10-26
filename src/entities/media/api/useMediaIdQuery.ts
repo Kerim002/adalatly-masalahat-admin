@@ -5,4 +5,5 @@ export const useMediaIdQuery = (id: number) =>
   useQuery<MediaItemSchema, Error>({
     queryKey: ["media", id],
     queryFn: () => mediaService.getMediaById(id),
+    enabled: !!id,
   });
