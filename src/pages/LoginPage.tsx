@@ -1,9 +1,18 @@
 import { Button, Form, Input, Typography } from "antd";
 import { EyeInvisibleOutlined, EyeTwoTone } from "@ant-design/icons";
+import { useNavigate } from "react-router-dom";
+import { useLoginMutation } from "@/entities/auth";
 
 const LoginPage = () => {
+  const navigate = useNavigate();
+  const { mutate } = useLoginMutation();
   const login = (values: any) => {
-    console.log(values);
+    mutate(values, {
+      onSuccess: () => navigate("/"),
+      onError: (error) => {
+        console.error(error);
+      },
+    });
   };
   return (
     <div className="w-[100vw] h-[100vh] bg-primary flex items-center justify-center">
