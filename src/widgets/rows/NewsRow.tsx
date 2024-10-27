@@ -3,6 +3,7 @@ import { TbTrash } from "react-icons/tb";
 import { BiEdit } from "react-icons/bi";
 import { useModal } from "@/shared/hooks";
 import { useDeleteNews } from "@/entities/news/api/useDeleteNews";
+import NewsModal from "../modal/NewsModal";
 type Props = {
   item: NewsItemSchema;
   index: number;
@@ -25,7 +26,7 @@ const NewsRow = ({ item, index }: Props) => {
       <div className="flex-[4] break-words">{item.en_title}</div>
       <div className="flex-[2] flex justify-center items-center">
         <Button
-          //   onClick={() => changeModal(<VideoModal  />)}
+          onClick={() => changeModal(<NewsModal id={item.id} />)}
           type="primary"
         >
           <BiEdit className="text-xl" />

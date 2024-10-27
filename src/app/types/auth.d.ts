@@ -1,4 +1,4 @@
-type LoginRequest = {
+interface LoginRequest {
   username: string;
   password: string;
-};
+}

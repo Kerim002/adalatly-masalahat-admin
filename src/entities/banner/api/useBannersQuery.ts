@@ -3,6 +3,6 @@ import { bannerService } from "./banner.service";
 
 export const useBannersQuery = (params: MediaListRequest) =>
   useQuery<BannerResponse, Error>({
-    queryKey: ["banners"],
+    queryKey: ["banner", params],
     queryFn: () => bannerService.getBanners(params),
   });

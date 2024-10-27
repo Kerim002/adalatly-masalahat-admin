@@ -1,10 +1,14 @@
 import { axiosWithAuth } from "@/shared/api/interceptor";
 
 class AuthService {
-  // private url = "/auth";
-  async login(body: LoginRequest) {
-    const res = await axiosWithAuth.post(`/login`, body);
+  async login(params: LoginRequest) {
+    const res = await axiosWithAuth.post(`/login`, params);
+    return res.data;
+  }
+  async logout() {
+    const res = await axiosWithAuth.post(`/logout`);
     return res.data;
   }
 }
+
 export const authService = new AuthService();

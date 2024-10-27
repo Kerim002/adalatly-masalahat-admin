@@ -36,7 +36,7 @@ const VideoModal = ({ id }: Props) => {
   const { mutate: createMedia, isPending: createLoading } =
     useMediaAddMutation();
   const { mutate: updateMedia, isPending: updateLoading } =
-    useMediaUpdateMutation();
+    useMediaUpdateMutation({});
   const onSubmit: SubmitHandler<any> = (data) => {
     const formdata = new FormData();
     formdata.append("en_title", data.entitle);
@@ -46,11 +46,14 @@ const VideoModal = ({ id }: Props) => {
     data.image[0] && formdata.append("cover", data.image[0]);
     if (result) {
       console.log("update");
-      updateMedia(formdata, {
-        onSuccess: () => {
-          close();
-        },
-      });
+      updateMedia(
+        { id: result.data?.id, media: formdata },
+        {
+          onSuccess: () => {
+            close();
+          },
+        }
+      );
     } else {
       console.log("create");
       createMedia(formdata, {

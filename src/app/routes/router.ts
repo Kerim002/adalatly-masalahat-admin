@@ -35,6 +35,10 @@ export const router = createBrowserRouter([
         Component: LawsPage,
       },
       {
+        path: "laws/add",
+        Component: SingleLaw,
+      },
+      {
         path: "laws/:id",
         Component: SingleLaw,
       },

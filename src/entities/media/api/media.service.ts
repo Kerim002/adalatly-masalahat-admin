@@ -23,8 +23,8 @@ class MediaService {
       },
     });
   }
-  async updateMedia(formdata: FormData) {
-    await axiosWithAuth.post(`${this.url}`, formdata, {
+  async updateMedia(formdata: FormData, id?: number) {
+    await axiosWithAuth.put(`${this.url}/${id}`, formdata, {
       headers: {
         "Content-Type": "multipart/form-data",
       },
