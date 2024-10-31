@@ -11,7 +11,7 @@ const Providers = () => {
       <ModalContext>
         <RouterProvider router={router} />;
         <Toaster richColors closeButton />
-        <ReactQueryDevtools initialIsOpen={false} />
+        {/* <ReactQueryDevtools initialIsOpen={false} /> */}
       </ModalContext>
     </QueryClientProvider>
   );

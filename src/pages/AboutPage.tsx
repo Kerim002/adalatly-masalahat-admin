@@ -5,7 +5,7 @@ const AboutPage = () => {
   const editor = useRef(null);
   const [content, setContent] = useState<string>("");
   const config = {
-    readonly: false, // change to true to make the editor read-only
+    readonly: false,
     placeholder: "Start typing here...",
   };
   return (
