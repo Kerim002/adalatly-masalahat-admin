@@ -1,7 +1,17 @@
-import { BiHome, BiLogOut, BiUser } from "react-icons/bi";
+import {
+  BiHome,
+  BiLogOut,
+  BiMessage,
+  BiNews,
+  BiUser,
+  BiVideo,
+} from "react-icons/bi";
 import SideLink from "../../shared/ui/SideLink";
 import { useLogout } from "@/entities/auth/api/useLogout";
 import { useNavigate } from "react-router-dom";
+import { VscLaw } from "react-icons/vsc";
+import { ImImages } from "react-icons/im";
+import { AiFillBook } from "react-icons/ai";
 
 const Sidebar = () => {
   const { mutate } = useLogout();
@@ -29,19 +39,22 @@ const Sidebar = () => {
               <BiUser className="text-2xl" />
             </SideLink>
             <SideLink path="/laws" title="Laws">
-              <BiUser className="text-2xl" />
+              <VscLaw className="text-2xl" />
             </SideLink>
             <SideLink path="/banner" title="Banner">
-              <BiUser className="text-2xl" />
+              <ImImages className="text-2xl" />
             </SideLink>
             <SideLink path="/news" title="News">
-              <BiUser className="text-2xl" />
+              <BiNews className="text-2xl" />
             </SideLink>
             <SideLink path="/videos" title="Videos">
-              <BiUser className="text-2xl" />
+              <BiVideo className="text-2xl" />
             </SideLink>
             <SideLink path="/about" title="About">
-              <BiUser className="text-2xl" />
+              <AiFillBook className="text-2xl" />
+            </SideLink>
+            <SideLink path="/message" title="Messages">
+              <BiMessage className="text-2xl" />
             </SideLink>
           </div>
         </div>
