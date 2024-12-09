@@ -1,6 +1,5 @@
-import AdminMessage from "@/entities/message/ui/AdminMessage";
-import ClientMessage from "@/entities/message/ui/ClientMessage";
-import { Button } from "antd";
+import AdminMessage from "@/entities/chat/ui/AdminMessage";
+import ClientMessage from "@/entities/chat/ui/ClientMessage";
 import { useState } from "react";
 import { BiSend } from "react-icons/bi";
 
