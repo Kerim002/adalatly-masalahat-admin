@@ -11,7 +11,7 @@ export const getAccessToken = () => {
   return "";
 };
 
-export const saveTokenStorage = (accessToken: string) => {
+export const saveTokenStorage = () => {
   // Cookies.set(EnumTokens.ACCESS_TOKEN, accessToken, {
   //   domain: "localhost",
   //   sameSite: "Lax",

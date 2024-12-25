@@ -4,7 +4,6 @@ import ModalContext from "./ModalProvider";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { queryClient } from "../../shared/api/query-client";
 import { Toaster } from "sonner";
-import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 const Providers = () => {
   return (
     <QueryClientProvider client={queryClient}>
