@@ -3,10 +3,11 @@ import { useModal } from "../../shared/hooks/useModal";
 import NewsModal from "../modal/NewsModal";
 import { BannerModal, VideoModal } from "../modal";
 import EmployeeModal from "../modal/EmployeeModal";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 const AddBtn = () => {
   const { changeModal } = useModal();
   const { pathname } = useLocation();
+  const navigate = useNavigate();
   const handleModal = () => {
     switch (pathname) {
       case "/employees":
@@ -20,6 +21,9 @@ const AddBtn = () => {
         break;
       case "/videos":
         changeModal(<VideoModal />);
+        break;
+      case "/laws":
+        navigate("/laws/add");
         break;
       default:
         break;

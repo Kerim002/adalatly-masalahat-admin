@@ -1,13 +1,22 @@
-import { Button, Popover } from "antd";
-import { TbTrash } from "react-icons/tb";
+import { Button, Popconfirm } from "antd";
 
-const DeleteBtn = () => {
+type Props = {
+  onClick?: any;
+};
+
+const DeleteBtn = ({ onClick }: Props) => {
   return (
-    <Popover>
-      <Button danger type="primary">
-        <TbTrash className="text-xl" />
+    <Popconfirm
+      title="Delete"
+      description="Are you sure to delete this ?"
+      onConfirm={onClick}
+      okText="Yes"
+      cancelText="No"
+    >
+      <Button className="w-24" type="primary" danger>
+        Delete
       </Button>
-    </Popover>
+    </Popconfirm>
   );
 };
 

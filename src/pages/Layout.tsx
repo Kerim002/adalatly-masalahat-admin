@@ -1,9 +1,15 @@
-import { Suspense } from "react";
-import { Outlet } from "react-router-dom";
+import { Suspense, useEffect } from "react";
+import { Outlet, useNavigate } from "react-router-dom";
 import Navbar from "../widgets/navbar/Navbar";
 import Sidebar from "../widgets/sidebar/Sidebar";
+import { setNavigate } from "@/shared/api/navigate";
 
 const LayoutPage = () => {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    setNavigate(navigate); // Set the navigate function globally
+  }, [navigate]);
   return (
     <div className="w-full h-screen flex ">
       <Sidebar />

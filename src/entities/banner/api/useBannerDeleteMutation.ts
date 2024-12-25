@@ -8,7 +8,7 @@ export const useBannerDeleteMutation = () =>
     mutationFn: (id: number) => bannerService.deleteBanner(id),
     onSuccess: (_, __, id) => {
       toast.success(`banner ${id} success deleted`);
-      queryClient.invalidateQueries({ queryKey: ["banners"] });
+      queryClient.invalidateQueries({ queryKey: ["banner"] });
     },
     onError: (error) => toast.error(error.message),
   });
