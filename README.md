@@ -211,7 +211,7 @@ npm run preview
 - Path alias: @ → ./src (for cleaner imports)
 - Dev server on port 5173
 - CORS enabled
-- API proxy: /api → http://216.250.10.181:4000
+- API proxy: /api → http://localhost:5000
 ```
 
 **Important:** The API proxy is configured to forward `/api` requests to `http://localhost:5000`. Ensure this backend service is running for API calls to work.
