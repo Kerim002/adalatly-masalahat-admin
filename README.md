@@ -214,7 +214,7 @@ npm run preview
 - API proxy: /api → http://216.250.10.181:4000
 ```
 
-**Important:** The API proxy is configured to forward `/api` requests to `http://216.250.10.181:4000`. Ensure this backend service is running for API calls to work.
+**Important:** The API proxy is configured to forward `/api` requests to `http://localhost:5000`. Ensure this backend service is running for API calls to work.
 
 ### TypeScript Configuration (`tsconfig.app.json`)
 
@@ -251,7 +251,7 @@ Tailwind CSS is configured for utility-first styling. Customize the theme in `ta
 
 The application is configured to communicate with a backend API:
 
-- **API Base URL:** `http://216.250.10.181:4000`
+- **API Base URL:** `http://localhost:5000`
 - **Proxy Path:** `/api`
 
 ### Using Axios
